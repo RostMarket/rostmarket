@@ -3,90 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>RostMarket — Панель</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-    }
-
-    header {
-      background: #222;
-      color: #fff;
-      padding: 15px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 20px;
-    }
-
-    .container {
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: white;
-      padding: 25px;
-      border-radius: 12px;
-      text-align: center;
-      cursor: pointer;
-      font-size: 18px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .card:hover {
-      background: #f0f0f0;
-    }
-
-    button {
-      padding: 8px 14px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>RostMarket — Панель</h1>
+<div class="card">
+  <h1>RostMarket</h1>
+  <p>Панель администратора</p>
+
+  <button onclick="goProducts()">Товары</button>
   <button onclick="logout()">Выйти</button>
-</header>
-
-<div class="container">
-  <h2>Разделы</h2>
-
-  <div class="cards">
-    <div class="card" onclick="go('products.html')">
-      📦 Товары
-    </div>
-  </div>
 </div>
 
-<script>
-  if (localStorage.getItem("auth") !== "true") {
-    window.location.href = "index.html";
-  }
-
-  function go(page) {
-    window.location.href = page;
-  }
-
-  function logout() {
-    localStorage.removeItem("auth");
-    window.location.href = "index.html";
-  }
-</script>
-
+<script src="app.js"></script>
 </body>
 </html>
