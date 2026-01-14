@@ -3,46 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <title>RostMarket — Вход</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .panel {
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      width: 300px;
-      text-align: center;
-    }
-    input, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 10px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="panel">
-    <h1>RostMarket</h1>
-    <p>Вход в систему</p>
+<div class="card">
+  <h1>RostMarket</h1>
+  <p>Вход в систему</p>
 
-    <input type="text" placeholder="Логин">
-    <input type="password" placeholder="Пароль">
+  <input id="login" placeholder="Логин">
+  <input id="password" type="password" placeholder="Пароль">
 
-    <button onclick="go()">Войти</button>
-  </div>
+  <button onclick="login()">Войти</button>
+  <p id="error"></p>
+</div>
 
-  <script>
-    function go() {
-      window.location.href = "dashboard.html";
-    }
-  </script>
-
+<script src="app.js"></script>
 </body>
 </html>
