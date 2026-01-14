@@ -3,46 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <title>RostMarket</title>
-
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f4f6f8;
+      background: #f2f2f2;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
-
     .box {
       background: white;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      border-radius: 10px;
+      width: 350px;
       text-align: center;
-      width: 300px;
     }
-
     input {
       width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-      font-size: 14px;
+      padding: 10px;
+      margin: 10px 0;
     }
-
     button {
       width: 100%;
       padding: 10px;
-      margin-top: 10px;
-      font-size: 14px;
       cursor: pointer;
     }
-
-    #error {
+    .error {
       color: red;
       margin-top: 10px;
-      min-height: 18px;
     }
   </style>
 </head>
@@ -52,26 +41,24 @@
     <h1>RostMarket</h1>
     <p>Вход в систему</p>
 
-    <input type="text" id="userLogin" placeholder="Логин">
-    <input type="password" id="userPassword" placeholder="Пароль">
+    <input type="text" id="login" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
 
     <button onclick="login()">Войти</button>
 
-    <div id="error"></div>
+    <div id="error" class="error"></div>
   </div>
 
   <script>
     function login() {
-      const login = document.getElementById("userLogin").value;
-      const password = document.getElementById("userPassword").value;
-      const error = document.getElementById("error");
+      const login = document.getElementById("login").value;
+      const password = document.getElementById("password").value;
 
-      error.textContent = "";
-
-      if (login === "admin" && password === "1234") {
-        alert("✅ Добро пожаловать, администратор!");
+      if (login === "admin" && password === "admin") {
+        window.location.href = "dashboard.html";
       } else {
-        error.textContent = "❌ Неверный логин или пароль";
+        document.getElementById("error").innerText =
+          "Неверный логин или пароль";
       }
     }
   </script>
