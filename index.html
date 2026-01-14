@@ -1,59 +1,68 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>RostMarket — Вход</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f2f2f2;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 320px;
-            text-align: center;
-            box-shadow: 0 0 10px rgba(0,0,0,.1);
-        }
-        input, button {
-            width: 100%;
-            padding: 10px;
-            margin-top: 10px;
-        }
-        .error {
-            color: red;
-            margin-top: 10px;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>RostMarket — Вход</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .panel {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .error {
+      color: red;
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="card">
-    <h2>RostMarket</h2>
-    <input id="login" placeholder="Логин">
+  <div class="panel">
+    <h1>RostMarket</h1>
+    <p>Вход в систему</p>
+
+    <input id="login" type="text" placeholder="Логин">
     <input id="password" type="password" placeholder="Пароль">
-    <button onclick="login()">Войти</button>
+
+    <button type="button" onclick="login()">Войти</button>
+
     <div id="error" class="error">Неверный логин или пароль</div>
-</div>
+  </div>
 
-<script>
-function login() {
-    const login = document.getElementById("login").value;
-    const password = document.getElementById("password").value;
+  <script>
+    function login() {
+      const login = document.getElementById("login").value;
+      const password = document.getElementById("password").value;
+      const error = document.getElementById("error");
 
-    if (login === "admin" && password === "admin") {
+      if (login === "admin" && password === "admin") {
         window.location.href = "dashboard.html";
-    } else {
-        document.getElementById("error").style.display = "block";
+      } else {
+        error.style.display = "block";
+      }
     }
-}
-</script>
+  </script>
 
 </body>
 </html>
