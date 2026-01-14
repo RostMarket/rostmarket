@@ -19,19 +19,9 @@
       width: 300px;
       text-align: center;
     }
-    input {
+    input, button {
       width: 100%;
       padding: 10px;
-      margin: 10px 0;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      cursor: pointer;
-    }
-    .error {
-      color: red;
-      display: none;
       margin-top: 10px;
     }
   </style>
@@ -42,25 +32,15 @@
     <h1>RostMarket</h1>
     <p>Вход в систему</p>
 
-    <input id="login" type="text" placeholder="Логин">
-    <input id="password" type="password" placeholder="Пароль">
+    <input type="text" placeholder="Логин">
+    <input type="password" placeholder="Пароль">
 
-    <button type="button" onclick="login()">Войти</button>
-
-    <div id="error" class="error">Неверный логин или пароль</div>
+    <button onclick="go()">Войти</button>
   </div>
 
   <script>
-    function login() {
-      const login = document.getElementById("login").value;
-      const password = document.getElementById("password").value;
-      const error = document.getElementById("error");
-
-      if (login === "admin" && password === "admin") {
-        window.location.href = "dashboard.html";
-      } else {
-        error.style.display = "block";
-      }
+    function go() {
+      window.location.href = "dashboard.html";
     }
   </script>
 
