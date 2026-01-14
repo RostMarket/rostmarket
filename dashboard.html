@@ -5,41 +5,88 @@
   <title>RostMarket — Панель</title>
   <style>
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #f4f6f8;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px 20px;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      height: 100vh;
     }
-    .panel {
-      background: white;
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .container {
       padding: 30px;
-      border-radius: 10px;
-      width: 400px;
-      text-align: center;
+      max-width: 800px;
+      margin: auto;
     }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      font-size: 18px;
+    }
+
+    .card:hover {
+      background: #eee;
+    }
+
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
+      padding: 8px 14px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <div class="panel">
-    <h1>RostMarket</h1>
-    <p>Панель администратора</p>
+<header>
+  <h1>RostMarket — Панель</h1>
+  <button onclick="logout()">Выйти</button>
+</header>
 
-    <button onclick="logout()">Выйти</button>
+<div class="container">
+  <h2>Разделы</h2>
+
+  <div class="cards">
+    <div class="card" onclick="go('products.html')">
+      📦 Товары
+    </div>
   </div>
+</div>
 
-  <script>
-    function logout() {
-      window.location.href = "index.html";
-    }
-  </script>
+<script>
+  if (localStorage.getItem("auth") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  function go(page) {
+    window.location.href = page;
+  }
+
+  function logout() {
+    localStorage.removeItem("auth");
+    window.location.href = "index.html";
+  }
+</script>
 
 </body>
 </html>
