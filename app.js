@@ -1,9 +1,11 @@
 function doLogin() {
-  const loginValue = document.getElementById("login").value;
-  const passwordValue = document.getElementById("password").value;
+  const login = document.getElementById("userLogin").value;
+  const password = document.getElementById("userPassword").value;
   const error = document.getElementById("error");
 
-  if (loginValue === "admin" && passwordValue === "1234") {
+  error.textContent = "";
+
+  if (login === "admin" && password === "1234") {
     alert("Добро пожаловать, администратор!");
   } else {
     error.textContent = "Неверный логин или пароль";
