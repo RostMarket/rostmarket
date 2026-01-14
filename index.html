@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>RostMarket</title>
+  <title>RostMarket — Вход</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,14 +15,14 @@
     .box {
       background: white;
       padding: 30px;
+      width: 300px;
       border-radius: 10px;
-      width: 350px;
       text-align: center;
     }
     input {
       width: 100%;
-      padding: 10px;
-      margin: 10px 0;
+      padding: 8px;
+      margin: 8px 0;
     }
     button {
       width: 100%;
@@ -37,31 +37,31 @@
 </head>
 <body>
 
-  <div class="box">
-    <h1>RostMarket</h1>
-    <p>Вход в систему</p>
+<div class="box">
+  <h2>RostMarket</h2>
+  <p>Вход в систему</p>
 
-    <input type="text" id="login" placeholder="Логин">
-    <input type="password" id="password" placeholder="Пароль">
+  <input id="login" placeholder="Логин">
+  <input id="password" type="password" placeholder="Пароль">
 
-    <button onclick="login()">Войти</button>
+  <button onclick="login()">Войти</button>
 
-    <div id="error" class="error"></div>
-  </div>
+  <div id="error" class="error"></div>
+</div>
 
-  <script>
-    function login() {
-      const login = document.getElementById("login").value;
-      const password = document.getElementById("password").value;
+<script>
+  function login() {
+    const login = document.getElementById("login").value;
+    const password = document.getElementById("password").value;
 
-      if (login === "admin" && password === "admin") {
-        window.location.href = "dashboard.html";
-      } else {
-        document.getElementById("error").innerText =
-          "Неверный логин или пароль";
-      }
+    if (login === "admin" && password === "1234") {
+      window.location.href = "dashboard.html";
+    } else {
+      document.getElementById("error").innerText =
+        "Неверный логин или пароль";
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
