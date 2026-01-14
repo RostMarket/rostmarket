@@ -2,10 +2,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>RostMarket — Товары</title>
+    <title>Товары</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<script>
+if (localStorage.getItem("auth") !== "true") {
+    location.replace("index.html");
+}
+</script>
 
 <div class="box">
     <h1>Товары</h1>
@@ -14,10 +20,9 @@
         <li>Товар 2</li>
         <li>Товар 3</li>
     </ul>
-
-    <button onclick="back()">Назад</button>
+    <button onclick="location.href='dashboard.html'">Назад</button>
 </div>
 
-<script src="app.js"></script>
+<script src="auth.js"></script>
 </body>
 </html>
