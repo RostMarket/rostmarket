@@ -2,66 +2,22 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>RostMarket — Вход</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f2f2f2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    .box {
-      background: white;
-      padding: 30px;
-      width: 300px;
-      border-radius: 10px;
-      text-align: center;
-    }
-    input {
-      width: 100%;
-      padding: 8px;
-      margin: 8px 0;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      cursor: pointer;
-    }
-    .error {
-      color: red;
-      margin-top: 10px;
-    }
-  </style>
+  <title>RostMarket</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="box">
-  <h2>RostMarket</h2>
+  <h1>RostMarket</h1>
   <p>Вход в систему</p>
 
-  <input id="login" placeholder="Логин">
-  <input id="password" type="password" placeholder="Пароль">
+  <input type="text" id="login" placeholder="Логин">
+  <input type="password" id="password" placeholder="Пароль">
 
   <button onclick="login()">Войти</button>
-
-  <div id="error" class="error"></div>
+  <p id="error" style="color:red;"></p>
 </div>
 
-<script>
-  function login() {
-    const login = document.getElementById("login").value;
-    const password = document.getElementById("password").value;
-
-    if (login === "admin" && password === "1234") {
-      window.location.href = "dashboard.html";
-    } else {
-      document.getElementById("error").innerText =
-        "Неверный логин или пароль";
-    }
-  }
-</script>
-
+<script src="app.js?v=3"></script>
 </body>
 </html>
