@@ -9,8 +9,14 @@
 
   <div class="box">
     <h1>RostMarket</h1>
-    <p>Система управления складом</p>
-    <button>Войти</button>
+    <p>Вход в систему</p>
+
+    <input type="text" id="login" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
+
+    <button onclick="login()">Войти</button>
+
+    <p id="error"></p>
   </div>
 
   <script src="app.js"></script>
