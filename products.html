@@ -1,1 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>RostMarket — Товары</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    header button {
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    form input, form button {
+      padding: 8px;
+      font-size: 14px;
+    }
+
+    form button {
+      grid-column: span 4;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background: #eee;
+    }
+
+    .delete-btn {
+      color: red;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>RostMarket — Склад</h1>
+  <button onclick="logout()">Выйти</button>
+</header>
+
+<div class="container">
+  <h2>Добавить товар</h2>
+
+  <form id="productForm">
+    <input type="text" id="name" placeholder="Название" required>
+    <input type="text" id="sku" placeholder="Артикул" required>
+    <input type="number" id="qty" placeholder="Кол-во" required>
+    <input type="number" id="price" placeholder="Цена" required>
+    <button type="submit">Добавить товар</button>
+  </form>
+
+  <h2>Список товаров</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Название</th>
+        <th>Артикул</th>
+        <th>Кол-во</th>
+        <th>Цена</th>
+        <th>Удалить</th>
+      </tr>
+    </thead>
+    <tbody id="productTable"></tbody>
+  </table>
+</div>
+
+<script>
+  // защита от прямого входа
+  if (localStorage.getItem("auth") !== "true") {
+    window.location.href = "index.html";
+  }
+
+  const form = document.getElementById("productForm");
+  const table = document.getElementById("productTable");
+
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+
+  function render() {
+    table.innerHTML = "";
+    products.forEach((p, i) => {
+      table.innerHTML += `
+        <tr>
+          <td>${p.name}</td>
+          <td>${p.sku}</td>
+          <td>${p.qty}</td>
+          <td>${p.price}</td>
+          <td><button class="delete-btn" onclick="remove(${i})">✖</button></td>
+        </tr>
+      `;
+    });
+    localStorage.setItem("products", JSON.stringify(products));
+  }
+
+  form.onsubmit = e => {
+    e.preventDefault();
+    products.push({
+      name: name.value,
+      sku: sku.value,
+      qty: qty.value,
+      price: price.value
+    });
+    form.reset();
+    render();
+  };
+
+  function remove(i) {
+    products.splice(i, 1);
+    render();
+  }
+
+  function logout() {
+    localStorage.removeItem("auth");
+    window.location.href = "index.html";
+  }
+
+  render();
+</script>
+
+</body>
+</html>
 
