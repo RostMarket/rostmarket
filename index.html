@@ -1,23 +1,59 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>RostMarket</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>RostMarket — Вход</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
-<div class="box">
-  <h1>RostMarket</h1>
-  <p>Вход в систему</p>
-
-  <input type="text" id="login" placeholder="Логин">
-  <input type="password" id="password" placeholder="Пароль">
-
-  <button onclick="login()">Войти</button>
-  <p id="error" style="color:red;"></p>
+<div class="card">
+    <h2>RostMarket</h2>
+    <input id="login" placeholder="Логин">
+    <input id="password" type="password" placeholder="Пароль">
+    <button onclick="login()">Войти</button>
+    <div id="error" class="error">Неверный логин или пароль</div>
 </div>
 
-<script src="app.js?v=3"></script>
+<script>
+function login() {
+    const login = document.getElementById("login").value;
+    const password = document.getElementById("password").value;
+
+    if (login === "admin" && password === "admin") {
+        window.location.href = "dashboard.html";
+    } else {
+        document.getElementById("error").style.display = "block";
+    }
+}
+</script>
+
 </body>
 </html>
