@@ -3,7 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>RostMarket</title>
-  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.15);
+      text-align: center;
+      width: 300px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 8px 0;
+      font-size: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    #error {
+      color: red;
+      margin-top: 10px;
+      min-height: 18px;
+    }
+  </style>
 </head>
 <body>
 
@@ -14,11 +55,26 @@
     <input type="text" id="userLogin" placeholder="Логин">
     <input type="password" id="userPassword" placeholder="Пароль">
 
-    <button onclick="doLogin()">Войти</button>
+    <button onclick="login()">Войти</button>
 
-    <p id="error"></p>
+    <div id="error"></div>
   </div>
 
-  <script src="app.js"></script>
+  <script>
+    function login() {
+      const login = document.getElementById("userLogin").value;
+      const password = document.getElementById("userPassword").value;
+      const error = document.getElementById("error");
+
+      error.textContent = "";
+
+      if (login === "admin" && password === "1234") {
+        alert("✅ Добро пожаловать, администратор!");
+      } else {
+        error.textContent = "❌ Неверный логин или пароль";
+      }
+    }
+  </script>
+
 </body>
 </html>
