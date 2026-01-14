@@ -2,19 +2,23 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>RostMarket — Панель</title>
+    <title>Панель</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="box">
-    <h1>RostMarket</h1>
-    <p>Панель администратора</p>
+<script>
+if (localStorage.getItem("auth") !== "true") {
+    location.replace("index.html");
+}
+</script>
 
-    <button onclick="goProducts()">Товары</button>
+<div class="box">
+    <h1>Панель администратора</h1>
+    <button onclick="location.href='products.html'">Товары</button>
     <button onclick="logout()">Выйти</button>
 </div>
 
-<script src="app.js"></script>
+<script src="auth.js"></script>
 </body>
 </html>
